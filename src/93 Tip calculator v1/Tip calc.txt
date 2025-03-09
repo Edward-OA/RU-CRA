@@ -1,0 +1,13 @@
+Tip calculator 
+
+1. initialize components
+2. return all components in the Tip calculator within a <div></div> 
+3. Fill other components with their respective static display
+4. Create state for the controlled elements/components. eg bill input, 
+percentage 1 and percentage 2
+5. the states woule be declared in the Tip calculator component 
+since it houses all other components and would be used to 
+calculate the output percentage 1&2
+6. once the first state is decleared you pass it as a prop to the 
+component to be used in the tip calculator and the call the prop in 
+the function it is meant for 

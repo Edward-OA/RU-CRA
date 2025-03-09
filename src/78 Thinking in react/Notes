@@ -1,0 +1,41 @@
+    The process
+
+1.  Break the desired UI into components and establish the component tree
+
+2.  Build a Static version in REACT(without state)
+
+3.  Thinking about state:
+    when to use state
+    types of state (localvs global)
+    where to place each state
+
+4.  Establish data flow:
+    one-way data flow
+    child-to-parent communication
+    Accessing global state
+
+step 3 and 4 are called state management
+
+5. You'll be able to answer questions like
+
+how to break up my UI design into components,
+
+how to make some of my components truly reusable,
+
+or how to assemble a user interface from reusable components.
+
+Now, we also think a lot about state,
+
+like what pieces of state do I need
+
+for the interactivity that I want
+
+and where to then place each of these states,
+
+or in other words,
+
+what component should actually own each piece of state,
+
+or what types of state can or should I use,
+
+How to make data flow through the application
