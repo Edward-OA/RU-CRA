@@ -5,7 +5,6 @@ import {
   useMemo,
   useState,
   createContext,
-  useContext,
 } from 'react';
 import { faker } from '@faker-js/faker';
 
@@ -77,7 +76,12 @@ function App() {
           {isFakeDark ? '☀️' : '🌙'}
         </button>
 
-        <Header />
+        <Header
+          posts={searchedPosts}
+          onClearPosts={handleClearPosts}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
         <Main posts={searchedPosts} onAddPost={handleAddPost} />
         <Archive
           archiveOptions={archiveOptions}
@@ -90,26 +94,25 @@ function App() {
   );
 }
 
-function Header() {
-  //3) consuming context value
-  const {onClearPosts} = useContext(PostContext);
-
+function Header({ posts, onClearPosts, searchQuery, setSearchQuery }) {
   return (
     <header>
       <h1>
         <span>⚛️</span>The Atomic Blog
       </h1>
       <div>
-        <Results />
-        <SearchPosts />
+        <Results posts={posts} />
+        <SearchPosts
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
         <button onClick={onClearPosts}>Clear posts</button>
       </div>
     </header>
   );
 }
 
-function SearchPosts() {
-  const{searchQuery,setSearchQuery}=useContext(PostContext)
+function SearchPosts({ searchQuery, setSearchQuery }) {
   return (
     <input
       value={searchQuery}
@@ -119,8 +122,7 @@ function SearchPosts() {
   );
 }
 
-function Results() {
-  const{posts}=useContext(PostContext)
+function Results({ posts }) {
   return <p>🚀 {posts.length} atomic posts found</p>;
 }
 
